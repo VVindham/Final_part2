@@ -1,0 +1,21 @@
+import sqlite3
+
+#supplies.db database
+conn = sqlite3.connect('people.db')
+cursor = conn.cursor()
+
+# table named 'userz' 
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS userz (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT NOT NULL,
+  password INTEGER NOT NULL,
+  auth_level INTEGER NOT NULL
+)
+''')
+
+
+conn.commit()
+conn.close()
+
+print("Database 'people.db' created successfully.")
